@@ -110,3 +110,92 @@ colors.addEventListener("click", function (event) {
         ? `dark-mode ${color}`
         : `${color}`
 })
+
+// ========================
+
+// const imgUrls = [
+//     "https://i.pinimg.com/originals/2b/f9/ac/2bf9acbd289ab39a32f421c76ed1c646.jpg",
+//     "https://ecolm.ru/wp-content/uploads/2021/05/dom.jpg",
+//     "https://i.pinimg.com/originals/b3/35/ba/b335ba96dcfe3911c3f712a54cba1c33.jpg",
+//     "https://rock929rocks.com/wp-content/uploads/sites/93/2020/08/shutterstock_1201011367.jpg",
+//     "https://img2.goodfon.com/original/1920x1080/8/3a/dom-mrachno-svet-lestnica.jpg",
+//     "https://siamvr.com/wp-content/uploads/2016/07/Witches-House_LR.jpg",
+// ]
+
+const imgUrls = [
+    "https://media.zicxa.com/3666799",
+    "https://i.pinimg.com/originals/38/af/ff/38afff7b0933eeffe8ed937573f0bfa1.jpg",
+    "https://i.pinimg.com/originals/65/34/ce/6534cea4ab8e884ec50677531a63e9b5.jpg",
+    "https://bradriley.org/wp-content/uploads/2016/09/thunderclouds-2000x1200.jpg",
+    "https://i.ytimg.com/vi/qkC7u23SArI/maxresdefault.jpg",
+    "https://i.pinimg.com/originals/3b/ad/06/3bad06db570187079e3aef37960d999c.jpg",
+]
+
+class Box {
+    render() {
+        let catalog = ""
+
+        imgUrls.forEach((url) => {
+            catalog += `
+                <div class="portfolio-box">
+                    <img
+                        src="${url}"
+                        alt="picture"
+                    />
+
+                    <div class="portfolio-layer">
+                        <h4>Web Design</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Sint esse cum ab quos! Officia,
+                            necessitatibus?
+                        </p>
+                        <a href="#"><i class="bx bx-link-external"></i></a>
+                    </div>
+                </div>
+            `
+        })
+
+        document.querySelector(".portfolio-container").innerHTML = catalog
+    }
+}
+
+class Testimonial {
+    render() {
+        let catalog = ``
+
+        for (const i of ["makima", "himeno", "power"]) {
+            catalog += `
+                <div class="testimonial-slide swiper-slide">
+                    <div class="inner">
+                        <img
+                            src="https://avatars.mds.yandex.net/i?id=58c0235c0ae0929feda80be99a3df2551288f10e-8263641-images-thumbs&n=13"
+                            alt=""
+                        />
+                        <h3>${i}</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Ipsum odit incidunt beatae
+                            quis, delectus sapiente magnam qui cum illum
+                            ex reprehenderit fuga aliquam amet
+                            praesentium nulla alias harum repellendus,
+                            cumque eaque vero! Cumque, eligendi non.
+                            Officiis aliquid illo sit id cumque delectus
+                            harum esse vero voluptatem. Necessitatibus
+                            veniam itaque illum adipisci eveniet
+                            voluptates veritatis, amet perspiciatis quas
+                            sapiente tempore reprehenderit?
+                        </p>
+                    </div>
+                </div>
+            `
+        }
+
+        document.querySelector(".testimonial-content").innerHTML = catalog
+    }
+}
+
+const testimonial = new Testimonial()
+const box = new Box()
+box.render()
+testimonial.render()

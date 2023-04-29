@@ -8,6 +8,16 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+.gradient {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 200px;
+    background: linear-gradient(0, rgba(0, 0, 0, 0.3), transparent);
+    z-index: 1000;
+}
+
 .dark-mode {
     --bg-color: #0b061f;
     --text-color: #fdfdfd;
@@ -32,6 +42,18 @@ body.purple {
 
 body.green {
     --main-color: #58dba9;
+}
+
+body.blue {
+    --main-color: #58b6db;
+}
+
+body.orange {
+    --main-color: #cc7b4d;
+}
+
+body.black {
+    --main-color: #333;
 }
 
 .touch {
@@ -106,7 +128,6 @@ span {
     color: var(--main-color);
 }
 
-/* =================================================== */
 .header {
     position: fixed;
     top: 0;
@@ -187,8 +208,24 @@ span {
     border-radius: 50%;
     margin-right: 1rem;
     cursor: pointer;
-    outline: 2px solid #fff;
-    border: 2px solid #ffffff;
+    outline: 2px solid var(--bg-color);
+    border: 2px solid var(--bg-color);
+}
+
+@media screen and (max-width: 650px) {
+    header .logo {
+        margin-right: 3rem;
+    }
+
+    .colors {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .colors span {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
 }
 
 .colors span:hover {
@@ -207,7 +244,18 @@ span {
     background: #58dba9;
 }
 
-/* ============== */
+.colors span:nth-child(4) {
+    background: #58b6db;
+}
+
+.colors span:nth-child(5) {
+    background: #cc7b4d;
+}
+
+.colors span:nth-child(6) {
+    background: #333;
+}
+
 .home {
     display: flex;
     align-items: center;
@@ -394,9 +442,6 @@ span {
     pointer-events: none;
 }
 
-/* ============================== about */
-/* ============================== about */
-/* ============================== about */
 .about {
     display: flex;
     justify-content: center;
@@ -422,6 +467,48 @@ span {
     line-height: 1.2;
 }
 
+.about-content .skills {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.about-content .skills__item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media screen and (max-width: 913px) {
+    .about-content .skills__item {
+        gap: 4rem;
+    }
+}
+
+.about-content .skills__item div {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background: var(--main-color);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 2px;
+    font-size: 1.2rem;
+}
+
+.about-content .skills__item p {
+    margin: 0;
+}
+
+@media screen and (max-width: 913px) {
+    .about-content {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+}
+
 .about-content h3 {
     font-size: 2rem;
 }
@@ -431,7 +518,10 @@ span {
     margin: 2rem 0 3rem;
 }
 
-/* ======================== */
+.about-content p span {
+    color: var(--main-color);
+}
+
 .services h2 {
     margin-bottom: 5rem;
 }
@@ -485,10 +575,6 @@ span {
     margin: 1rem 0 3rem;
 }
 
-/* =================== portfoio */
-/* =================== portfoio */
-/* =================== portfoio */
-/* =================== portfoio */
 .portfolio {
     padding-bottom: 10rem;
 }
@@ -513,6 +599,9 @@ span {
 }
 
 .portfolio-box img {
+    height: 310px;
+    -o-object-fit: cover;
+    object-fit: cover;
     width: 100%;
     transition: 0.5s ease;
 }
@@ -567,9 +656,6 @@ span {
     color: #333;
 }
 
-/* ======================= testimonial */
-/* ======================= testimonial */
-/* ======================= testimonial */
 .testimonial-container {
     display: flex;
     align-items: center;
@@ -651,10 +737,6 @@ span {
     background: var(--main-color);
 }
 
-/* =============================== contact */
-/* =============================== contact */
-/* =============================== contact */
-/* =============================== contact */
 .contact h2 {
     margin-bottom: 3rem;
 }
@@ -697,7 +779,6 @@ span {
     cursor: pointer;
 }
 
-/* ================= */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -733,11 +814,6 @@ span {
     color: #333;
 }
 
-/* ============================= media */
-/* ============================= media */
-/* ============================= media */
-/* ============================= media */
-/* ============================= media */
 @media screen and (max-width: 1500px) {
     html {
         font-size: 10px;
